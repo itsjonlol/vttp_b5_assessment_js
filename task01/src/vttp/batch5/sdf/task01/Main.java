@@ -18,7 +18,7 @@ public class Main {
 		helper.readCSV(fileName);
 		List<Record> filteredList = new ArrayList<>();
 		
-		filteredList = helper.getFilteredList(); // this is the filtered top 5 list
+		filteredList = helper.getFilteredList(); // get the top 5 list
 		
 
 		

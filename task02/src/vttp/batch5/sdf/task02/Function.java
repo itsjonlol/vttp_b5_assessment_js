@@ -62,27 +62,6 @@ public class Function {
         System.out.println( board[1][0] + board[1][1] + board[1][2]);
         System.out.println( board[2][0] + board[2][1] + board[2][2]);
     }
-    // get a list containing a list of empty coordinates
-    // public List<List<Integer>>  findEmptyPos(String[][] board) {
-    //     List<List<Integer>> coordinatesList = new ArrayList<>();
-        
-    //     for (int row = 0;row<3; row++) {
-    //         for (int col = 0; col<3; col++) {
-    //             List<Integer> coordinates = new ArrayList<>();
-    //             if (board[row][col].equals(".")) {
-    //                 coordinates.add(row);
-    //                 coordinates.add(col);
-    //                 coordinatesList.add(coordinates);
-    //             }
-                
-    //         }
-    //     }
-    //     //System.out.println(coordinates.size());
-    //     System.out.println(coordinatesList.size());
-        
-    //     return coordinatesList;
-        
-    // }
 
 
     public int utilityEvaluate(String[][] board) {
@@ -219,6 +198,33 @@ public class Function {
             
 
         }
+    }
+    //pseudocode
+    //board 4 has 3 X and 2 O, indicating that our turn has passed.
+    //this is an anomaly, because it is assumed it is our turn next
+    //after creating the string[][] board. we loop through the whole board and check the number of X and O initially
+    //if X is more than O, ourTurn = false;
+    //Follow the main calculateUtility function as per usual (where ourTurn = true) 
+    //evaluate the state immediately (where ourTurn = false)
+
+    public boolean confirmTurn(String[][] board) {
+        boolean ourTurn = true;
+        int countPlayer = 0;
+        int countComputer = 0;
+        for (int i = 0;i<3;i++) {
+            for (int j = 0; j<3; j++) {
+                if (board[i][j].equals(player)){
+                    countPlayer++;
+                } else if (board[i][j].equals(computer)){
+                    countComputer++;
+                }
+                
+            }
+        }
+        if (countPlayer > countComputer) {
+            ourTurn = false;
+        }
+        return ourTurn;
     }
   
 }
