@@ -43,7 +43,8 @@ public class Function {
             while ((line = br.readLine())!= null) {
                 //System.out.println(line.trim());
                 String[] tokens = line.trim().split("");
-                System.out.println(tokens[1]);
+                //create a string[][] array filled with values corresponding with the text file
+                
                 if (count == 0) {
                     board[0][0] = tokens[0];
                     board[0][1] = tokens[1];
@@ -68,7 +69,7 @@ public class Function {
 
             }
 			this.showBoard(board);
-			//System.out.println(br.readLine());
+			
 		} catch (IOException e) {
 			
 			e.printStackTrace();
@@ -78,5 +79,10 @@ public class Function {
         System.out.println( board[0][0] + board[0][1] + board[0][2]);
         System.out.println( board[1][0] + board[1][1] + board[1][2]);
         System.out.println( board[2][0] + board[2][1] + board[2][2]);
+    }
+
+    public void findEmptyPos(String[][] board) {
+        String x = "";
+        String y = "";
     }
 }
