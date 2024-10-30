@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 public class Helper {
     public List<Record> listRecord;
     public List<Record> filteredList;
-    // public List<BikeEntry> listBikeEntry;
-    // public List<BikeEntry> filteredListBike;
     
     public void readCSV(String fileName) throws IOException {
         Reader reader = new FileReader(fileName);
