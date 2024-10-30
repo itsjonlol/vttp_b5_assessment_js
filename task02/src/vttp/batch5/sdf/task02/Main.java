@@ -7,7 +7,8 @@ public class Main {
 	public static void main(String[] args) {
 
 		if (args.length != 1) {
-			System.err.println("Please provide 1 argument only. FileName should begin with 'TTT/'.");
+			System.err.println("Please provide 1 argument only. FileName should begin with 'TTT/'., e.g. TTT/figure1.txt"); //e.g
+			// TTT/figure1.txt
 			System.exit(-1);
 		}
 		String fileName = args[0];
@@ -28,14 +29,12 @@ public class Main {
 
 		Function function = new Function();
 		String[][] fileBoard = function.readFile(fileName,board);
+		System.out.println("Board:");
+		System.out.println();
 		function.showBoard(fileBoard);
 		List<List<Integer>> coordinatesList = function.calculateUtility(fileBoard);
 
-		// for (List<Integer> coordinates : coordinatesList) {
-		// 	for (Integer coordinate : coordinates) {
-		// 		System.out.println(coordinate);
-		// 	}
-		// }
+		
 		function.output(coordinatesList);
 
 		

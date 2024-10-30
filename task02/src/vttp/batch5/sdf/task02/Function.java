@@ -84,78 +84,12 @@ public class Function {
         
     // }
 
-    public int utilityEvaluation( String[][] board) {
-        int utility = 1000;
-
-        
-        //check if each row and each column contains player
-        for (int i = 0; i<3; i++) {
-            if ((board[i][0].equals(board[i][1])) && (board[i][1].equals(board[i][2])) && board[i][1].equals(player)) {
-                utility = 1;
-            } else if((board[0][i].equals(board[1][i])) && (board[1][i].equals(board[2][i])) && board[i][1].equals(computer)) {
-                utility = -1;   
-            }  
-
-            if ((board[0][i].equals(board[1][i])) && (board[1][i].equals(board[2][i])) && board[1][i].equals(player)) {
-                utility = 1;
-            } else if ((board[0][i].equals(board[1][i])) && (board[1][i].equals(board[2][i])) && board[1][i].equals(computer)) {
-                utility = -1;
-            }
-        }
-        
-        //check both diagonals if each diagonal contains player
-        if (board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) && board[1][1].equals(player)) {
-            utility =1;
-        } else if (board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) && board[1][1].equals(computer)){
-            utility = -1;
-        } 
-
-        if (board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && board[1][1].equals(player)) {
-            utility =1;
-        } else if (board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && board[1][1].equals(computer)) {
-                utility = -1;
-            }
-        //check if each row and column has 2 "O" and "."
-        
-       
-
-        //loop through row 0, if row 0, count the number of 0, and the number of 
-        //board[0][0], board[0][1],board[0][2]
-        
-        
-
-        return utility;
-    }
 
     public int utilityEvaluate(String[][] board) {
         int utility = 0;
-        int countO = 0;
-        int countEmpty = 0;
-        int countOrow = 0;
-        int countEmptyrow = 0;
-        for (int k = 0; k<3; k++) {
-            
-            if (board[k][0].equals("O")) {
-                countO++;
-            } else if (board[k][0].equals(".")) {
-                countEmpty++;
-            }
-            if (countO == 2 && countEmpty == 1) {
-                return -1;
-            }
-        }
-        for (int j = 0; j<3; j++) {
-            
-            if (board[0][j].equals("O")) {
-                countOrow++;
-            } else if (board[0][j].equals(".")) {
-                countEmptyrow++;
-            }
-            if (countOrow == 2 && countEmptyrow == 1) {
-                return -1;
-            }
-        }
-
+ 
+        
+        //check if a row or columns contains 3 X
         for (int i = 0; i<3; i++) {
             if ((board[i][0].equals(board[i][1])) && (board[i][1].equals(board[i][2])) && board[i][1].equals(player)) {
                 return 1;
@@ -164,7 +98,9 @@ public class Function {
                 return 1;
             } 
             
+           
         }
+        //check both diagonals if they have 3 X
         if (board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) && board[1][1].equals(player)) {
             return 1;
         } 
@@ -173,7 +109,78 @@ public class Function {
         }
 
         
-        
+
+        //pseudo code
+        //loop through each row, count the number of "O" using countO and 
+        //number of "." using countEmpty
+        //ensure that both counts reset when going to the next row.
+        //if any row consists of countO = 2 and countEmpty = 1,
+        //return -1
+
+        //do the same for looping each column. if any column has countO = 2 and countEmpty = 1;
+        //return -1
+
+        //the below 2 functions are not working as intended. please refer to the pseudo code above
+        int countO0 = 0;
+        int countEmpty0 = 0;
+        int countO1 = 0;
+        int countEmpty1 = 0;
+        int countO2 = 0;
+        int countEmpty2 = 0;
+
+        for (int j = 0; j<3; j++) {
+            
+            if (board[j][0].equals(computer)) {
+                countO0++;
+            } else if (board[j][0].equals(".")){
+                countEmpty0++;
+            } else if (board[j][1].equals(computer)) {
+                countO1++;
+
+            } else if (board[j][1].equals(".")) {
+                countEmpty1++;
+            } else if (board[j][2].equals(computer)) {
+                countO2++;
+
+            } else if (board[j][2].equals(".")) {
+                countEmpty2++;
+            }
+
+            if ((countO0 == 2 && countEmpty0 == 1) || (countO1 == 2 && countEmpty1 == 1) || (countO2 == 2 && countEmpty2 == 1)) {
+                return -1;
+            }
+            
+        }
+        int countO0B = 0;
+        int countEmpty0B= 0;
+        int countO1B = 0;
+        int countEmpty1B = 0;
+        int countO2B = 0;
+        int countEmpty2B = 0;
+        for (int k = 0; k<3; k++) {
+            
+            if (board[0][k].equals(computer)) {
+                countO0B++;
+            } else if (board[0][k].equals(".")){
+                countEmpty0B++;
+            } else if (board[1][k].equals(computer)) {
+                countO1B++;
+
+            } else if (board[1][k].equals(".")) {
+                countEmpty1B++;
+            } else if (board[2][k].equals(computer)) {
+                countO2B++;
+
+            } else if (board[2][k].equals(".")) {
+                countEmpty2B++;
+            }
+
+            if ((countO0B == 2 && countEmpty0B == 1) || (countO1B == 2 && countEmpty1B == 1) || (countO2B == 2 && countEmpty2B == 1)) {
+                return -1;
+            }
+            
+        }
+
 
         return utility;
     }
@@ -188,11 +195,12 @@ public class Function {
                     coordinates.add(row);
                     coordinates.add(col);
                     board[row][col] = player; //place my player in the empty position
-                    int utility = utilityEvaluate(board); // check the utility
-                    this.showBoard(board);
+                   
+                    int utility = utilityEvaluate(board); // check the utility for the new state
+                    
                     coordinates.add(utility);
                     board[row][col] = "."; // i want to undo back the move for the next turn
-                    this.showBoard(board);
+            
                     coordinatesList.add(coordinates);
                 }
                 
