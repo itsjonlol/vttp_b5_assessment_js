@@ -1,5 +1,7 @@
 package vttp.batch5.sdf.task02;
 
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -15,8 +17,26 @@ public class Main {
 		}
 		System.out.println("Processing: " + fileName);
 		
+
+		String[][] board = new String[3][3];
+
+		for (int row = 0; row<3; row++) {
+			for (int col = 0; col <3; col++) {
+				board[row][col] = ".";
+			}
+		}
+
 		Function function = new Function();
-		function.readFile(fileName);
+		String[][] fileBoard = function.readFile(fileName,board);
+		function.showBoard(fileBoard);
+		List<List<Integer>> coordinatesList = function.findEmptyPos(fileBoard);
+
+		for (List<Integer> coordinates : coordinatesList) {
+			for (Integer coordinate : coordinates) {
+				System.out.println(coordinate);
+			}
+		}
+
 		
 	}
 }

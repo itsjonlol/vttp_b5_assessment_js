@@ -21,7 +21,7 @@ public class Main {
 		filteredList = helper.getFilteredList(); // this is the filtered top 5 list
 		
 
-		Record oneRecord = filteredList.get(0);
+		
 
 
 		for (int i = 0; i<filteredList.size(); i++) {
@@ -49,7 +49,7 @@ public class Main {
 			String day = toWeekday((Integer.parseInt(filteredList.get(i).getDay())));
 			String totalCyclists = String.valueOf(filteredList.get(i).getCyclists());
 			String weather = toWeather(Integer.parseInt(filteredList.get(i).getWeather()));
-			//System.out.println(toSeason(Integer.parseInt(record.getSeason())));
+			
 			System.out.println("The " + placeholder + " highest (position) recorded number of cyclists was in "+
 			season + ", on a " + day + " (day) in the month of " + month + ".");
 			System.out.println("There were a total of " + totalCyclists + "(total) cyclists. The weather was "
