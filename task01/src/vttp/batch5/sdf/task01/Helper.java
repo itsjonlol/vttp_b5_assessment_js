@@ -21,7 +21,7 @@ public class Helper {
         String line = "";
         listRecord  = new ArrayList<>(); // to store a list of individual entry records
         while ((line = br.readLine())!= null) {
-            //System.out.println(line);
+        
             String[] tokens = line.split(","); // split the columns by comma
             int casual = Integer.parseInt(tokens[8]);
             int registered = Integer.parseInt(tokens[9]);
@@ -43,21 +43,16 @@ public class Helper {
 
             listRecord.add(record);
 
-            System.out.println(line + " no. is " + totalCyclist);
+            
         }
-        //listRecord.forEach(System.out::println);
-
-//         lst.stream()
-//    .sorted(Comparator.reverseOrder())
-//    .limit(5)
-//    .collect(Collectors.toList());
+        
 
 
         filteredList = listRecord.stream()
         .sorted(Comparator.comparing(Record::getCyclists,Comparator.reverseOrder()))
         .limit(5)
         .collect(Collectors.toList()); // get a filtered list in descending number of total number of cyclists
-        
+            // top 5 list
         
         
         

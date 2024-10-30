@@ -19,18 +19,15 @@ public class Main {
 		List<Record> filteredList = new ArrayList<>();
 		
 		filteredList = helper.getFilteredList(); // this is the filtered top 5 list
-		filteredList.forEach(System.out::println);
+		
 
 		Record oneRecord = filteredList.get(0);
 
-        // System.out.println(oneRecord.getMonth());
-		
-		// System.out.println(toSeason(Integer.parseInt(oneRecord.getSeason())));
 
 		for (int i = 0; i<filteredList.size(); i++) {
 			String placeholder = "";
 			if (i==0) {
-				placeholder = "first";
+				placeholder = "";
 
 			} else if (i == 1) {
 				placeholder = "second";
@@ -55,7 +52,7 @@ public class Main {
 			//System.out.println(toSeason(Integer.parseInt(record.getSeason())));
 			System.out.println("The " + placeholder + " highest recorded number of cyclists was in "+
 			season + ", on a " + day + " in the month of " + month + ".");
-			System.out.println("There was a total of " + totalCyclists + " cyclists. The weather was "
+			System.out.println("There were a total of " + totalCyclists + " cyclists. The weather was "
 			+ weather + ". " );
 			System.out.println(day + " was "
 			+ holidayPlaceHolder + " a holiday" );
