@@ -29,13 +29,14 @@ public class Main {
 		Function function = new Function();
 		String[][] fileBoard = function.readFile(fileName,board);
 		function.showBoard(fileBoard);
-		List<List<Integer>> coordinatesList = function.findEmptyPos(fileBoard);
+		List<List<Integer>> coordinatesList = function.calculateUtility(fileBoard);
 
-		for (List<Integer> coordinates : coordinatesList) {
-			for (Integer coordinate : coordinates) {
-				System.out.println(coordinate);
-			}
-		}
+		// for (List<Integer> coordinates : coordinatesList) {
+		// 	for (Integer coordinate : coordinates) {
+		// 		System.out.println(coordinate);
+		// 	}
+		// }
+		function.output(coordinatesList);
 
 		
 	}
