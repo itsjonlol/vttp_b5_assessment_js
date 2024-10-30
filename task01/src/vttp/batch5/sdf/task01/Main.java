@@ -50,11 +50,11 @@ public class Main {
 			String totalCyclists = String.valueOf(filteredList.get(i).getCyclists());
 			String weather = toWeather(Integer.parseInt(filteredList.get(i).getWeather()));
 			//System.out.println(toSeason(Integer.parseInt(record.getSeason())));
-			System.out.println("The " + placeholder + " highest recorded number of cyclists was in "+
-			season + ", on a " + day + " in the month of " + month + ".");
-			System.out.println("There were a total of " + totalCyclists + " cyclists. The weather was "
-			+ weather + ". " );
-			System.out.println(day + " was "
+			System.out.println("The " + placeholder + " highest (position) recorded number of cyclists was in "+
+			season + ", on a " + day + " (day) in the month of " + month + ".");
+			System.out.println("There were a total of " + totalCyclists + "(total) cyclists. The weather was "
+			+ weather + "(weather). " );
+			System.out.println(day + " (day) was "
 			+ holidayPlaceHolder + " a holiday" );
 			System.out.println();
 		}
