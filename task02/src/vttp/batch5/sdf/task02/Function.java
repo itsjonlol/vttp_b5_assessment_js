@@ -206,6 +206,7 @@ public class Function {
     //if X is more than O, ourTurn = false;
     //Follow the main calculateUtility function as per usual (where ourTurn = true) 
     //evaluate the state immediately (where ourTurn = false)
+    //Please note that my code did not account for confirmTurn yet. it is under the assumption that it is always our turn next
 
     public boolean confirmTurn(String[][] board) {
         boolean ourTurn = true;
