@@ -178,7 +178,7 @@ public class Function {
                     int utility = utilityEvaluate(board); // check the utility for the new state
                     
                     coordinates.add(utility);
-                    board[row][col] = "."; // i want to undo back the move for the next turn
+                    board[row][col] = "."; // i want to undo back the move for the next possible move
             
                     coordinatesList.add(coordinates);
                 }
